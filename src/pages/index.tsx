@@ -28,26 +28,26 @@ const Home: FC = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-row gap-4 p-4">
-					<div className="card outline bg-black w-96 bg-primary text-primary-content">
+				<div className="flex flex-col md:flex-row gap-4 p-4 w-full">
+					<div className="card outline bg-black w-full text-primary-content">
 						<div className="card-body">
 							<h2 className="card-title">1</h2>
 							<p>Paste your DAO address</p>
 						</div>
 					</div>
-					<div className="card outline bg-black w-96 bg-primary text-primary-content">
+					<div className="card outline bg-black w-full  text-primary-content">
 						<div className="card-body">
 							<h2 className="card-title">2</h2>
 							<p>Connect your GitHub account</p>
 						</div>
 					</div>
-					<div className="card w-96 outline bg-black bg-primary text-primary-content">
+					<div className="card w-full  outline bg-black text-primary-content">
 						<div className="card-body">
 							<h2 className="card-title">3</h2>
 							<p>Customize the styling and content</p>
 						</div>
 					</div>
-					<div className="card w-96 outline bg-black bg-primary text-primary-content">
+					<div className="card w-full  outline bg-black text-primary-content">
 						<div className="card-body">
 							<h2 className="card-title">4</h2>
 							<p>Deploy your website</p>

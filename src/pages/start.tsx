@@ -4,7 +4,7 @@ import logo from 'public/images/logo.svg'
 
 const start = () => {
 	return (
-		<div className="w-11/12 m-auto h-screen justify-between flex flex-col">
+		<div className="w-11/12 m-auto h-screen flex flex-col">
 			<div>
 				<div className="navbar bg-base-100">
 					<a className=" normal-case text-xl">NounsBuilderUI</a>

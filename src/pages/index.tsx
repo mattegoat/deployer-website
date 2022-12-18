@@ -16,7 +16,9 @@ const Home: FC = () => {
 					<div className="hero-content text-center relative">
 						<div className="max-w-xl">
 							<h1 className="text-5xl font-bold">Deploy custom websites for your DAOs in a click</h1>
-							<button className="btn btn-outline mt-7 w-40">Start now</button>
+							<a href="/start" className="start-button btn btn-outline mt-7 w-40">
+								Start now
+							</a>
 						</div>
 						<div
 							className="absolute left-0 bottom-0 -z-10"

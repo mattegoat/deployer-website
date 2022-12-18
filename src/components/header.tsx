@@ -10,7 +10,9 @@ const Header = () => {
 				<div className="h-12 w-12 my-auto  translate-y-0.5">
 					<Image src={logo} />
 				</div>
-				<button className="btn btn-outline w-40 ml-auto mt-1">Start now</button>
+				<a href="/start" className="btn btn-outline w-40 ml-auto mt-1">
+					Start now
+				</a>
 			</div>
 		</div>
 	)

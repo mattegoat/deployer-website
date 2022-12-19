@@ -12,11 +12,11 @@ const Wrapup = () => {
 
 			<h1 className="text-left pt-10 text-bold text-3xl">DAO Address</h1>
 			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
-				0xtest04UAknsqàçu'fvs
+				0xtest04UAknsqàçufvs
 			</a>
 			<h1 className="text-left pt-10 text-bold text-3xl">DAO logo</h1>
 			<div className="h-24 w-24">
-				<Image src={logo} />
+				<Image src={logo} alt="logo" />
 			</div>
 			<h1 className="text-left pt-10 text-bold text-3xl">Chosen theme</h1>
 			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">

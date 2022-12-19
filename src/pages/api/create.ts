@@ -18,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			const data = await octokit.request('POST /repos/{template_owner}/{template_repo}/generate', {
 				template_owner: 'mattegoat',
 				template_repo: 'no-code-builder-dao',
-				name: 'No Code Builder DAO',
+				name: 'no-code-nounish-repo',
 				description: 'Your own custom website for your Nounish DAO',
 				include_all_branches: false,
 				private: false,

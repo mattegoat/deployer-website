@@ -31,10 +31,24 @@ const Wrapup: NextPage = () => {
 	const createRepo = async () => {
 		try {
 			setCreating(true)
+			// Create Repo from template
 			const response = await (await fetch(`/api/create`, { method: 'POST', body: '' })).json()
-			console.log(response)
 			const repoUrl = response.data.html_url
 			updateDeployedInfo({ url: repoUrl })
+
+			// Push custom config to deployed repo
+			const owner = response.data.owner.login
+			const name = response.data.full_name
+			const _response = await (
+				await fetch(`/api/update`, {
+					method: 'POST',
+					body: JSON.stringify({ owner, repo: name, config }),
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				})
+			).json()
+
 			setCreating(false)
 		} catch (err: any) {
 			console.error(err)

@@ -41,7 +41,7 @@ const Start: NextPage = () => {
 							placeholder="Type here"
 							className="input input-bordered w-full max-w-xs mt-4"
 						/>
-						<input type="submit" className="ml-auto mt-3" value="GO" />
+						<input type="submit" className="ml-auto mt-3 btn" value="GO" />
 						{/* <svg
 								width="24"
 								height="24"

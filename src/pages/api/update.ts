@@ -27,7 +27,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			const files = [
 				{
 					name: 'config/config.json',
-					contents: JSON.stringify(config),
+					contents: JSON.stringify({ ...config, adminAddress: '', chainId: '1' }),
 				},
 			]
 

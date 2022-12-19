@@ -10,9 +10,11 @@ const start = () => {
 			<Header />
 			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
 				<div className="card-body">
-					<h2 className="card-title">Paste Logo</h2>
-					<p>Please paste a link to your logo</p>
-					<input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs mt-4" />
+					<h2 className="card-title">Paste Logo & socials</h2>
+					<p>Please paste a link to your logo and socials</p>
+					<input type="text" placeholder="Image" className="input input-bordered w-full max-w-xs mt-4" />
+					<input type="text" placeholder="Twitter" className="input input-bordered w-full max-w-xs mt-4" />
+					<input type="text" placeholder="Discord" className="input input-bordered w-full max-w-xs mt-4" />
 					<Link href="/theme" className="ml-auto mt-3">
 						<svg
 							width="24"
@@ -20,6 +22,7 @@ const start = () => {
 							xmlns="http://www.w3.org/2000/svg"
 							fillRule="evenodd"
 							clipRule="evenodd"
+							className="ml-auto mt-4"
 						>
 							<path
 								fill="white"

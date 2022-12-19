@@ -34,7 +34,7 @@ const Start: NextPage = () => {
 					<div className="card-body">
 						<h2 className="card-title">Paste Address</h2>
 						<p>Please paste the address of your DAO (NFT contract)</p>
-						<form onSubmit={handleSubmit}>
+						<form onSubmit={handleSubmit} className="flex flex-col justify-end">
 							<input
 								type="text"
 								defaultValue={configStore.config.address}

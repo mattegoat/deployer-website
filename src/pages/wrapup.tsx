@@ -17,10 +17,14 @@ const useHasHydrated = () => {
 
 const Wrapup: NextPage = () => {
 	const config = useConfigStore(state => state.config)
-	const deployedRepo = useConfigStore(state => state.deployedRepo)
+
 	const { data } = useSession()
+
 	const hasHydrated = useHasHydrated()
+
+	const deployedRepo = useConfigStore(state => state.deployedRepo)
 	const updateDeployedInfo = useConfigStore(state => state.updateDeployedInfo)
+	const resetDeployedInfo = useConfigStore(state => state.resetDeployedInfo)
 
 	const [creating, setCreating] = useState(false)
 
@@ -36,6 +40,10 @@ const Wrapup: NextPage = () => {
 			console.error(err)
 			setCreating(false)
 		}
+	}
+
+	const reset = () => {
+		resetDeployedInfo()
 	}
 
 	if (!hasHydrated) {
@@ -69,14 +77,19 @@ const Wrapup: NextPage = () => {
 					{config.discord}
 				</a>
 				{deployedRepo ? (
-					<a
-						className="btn w-fit mt-4 mx-auto mb-10"
-						href={deployedRepo.url}
-						target="_blank"
-						rel="noreferrer"
-					>
-						Go to my repo
-					</a>
+					<div className="flex">
+						<a
+							className="btn w-fit mt-4 mx-auto mb-10"
+							href={deployedRepo.url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							Go to my repo
+						</a>
+						<button className="btn w-fit mt-4 mx-auto mb-10" onClick={reset}>
+							Reset
+						</button>
+					</div>
 				) : (
 					<button className="btn w-fit mt-4 mx-auto mb-10" onClick={createRepo}>
 						{creating ? 'Creating..' : 'Create Repository'}

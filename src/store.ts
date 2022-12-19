@@ -20,6 +20,7 @@ interface ConfigState {
 	deployedRepo?: RepoType
 	updateConfig: ({ address, theme, twitter, discord, logo }: ConfigType) => any
 	updateDeployedInfo: ({ url }: RepoType) => any
+	resetDeployedInfo: () => any
 }
 
 export const useConfigStore = create<ConfigState>()(
@@ -35,6 +36,7 @@ export const useConfigStore = create<ConfigState>()(
 			updateConfig: (c: ConfigType) => set(state => ({ ...state, config: { ...state.config, ...c } })),
 			updateDeployedInfo: (r: RepoType) =>
 				set(state => ({ ...state, deployedRepo: { ...state.deployedRepo, ...r } })),
+			resetDeployedInfo: () => set(state => ({ ...state, deployedRepo: null })),
 		}),
 		{
 			name: 'config-storage', // name of item in the storage (must be unique)

@@ -8,9 +8,11 @@ import bg from 'public/images/bg.png'
 import Image from 'next/image'
 import { signIn, useSession } from 'next-auth/react'
 import Link from 'next/link'
+import { useConfigStore } from '@/store'
 
 const Home: FC = () => {
-	const { data, status } = useSession()
+	const { status } = useSession()
+	const deployedRepo = useConfigStore(state => state.deployedRepo)
 
 	return (
 		<div data-theme="black">

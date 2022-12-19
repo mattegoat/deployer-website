@@ -1,36 +1,68 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useState } from 'react'
 import logo from 'public/images/logo.svg'
 import Header from '@/components/header'
 import Link from 'next/link'
+import { NextPage } from 'next'
+import { useConfigStore } from '@/store'
+import { useRouter } from 'next/router'
 
-const start = () => {
+const Start: NextPage = () => {
+	const config = useConfigStore(state => state.config)
+	const router = useRouter()
+	const updateConfig = useConfigStore(state => state.updateConfig)
+
+	const handleSubmit = (e: React.SyntheticEvent) => {
+		e.preventDefault()
+		const target = e.target as typeof e.target & {
+			twitter: { value: string }
+			discord: { value: string }
+			logo: { value: string }
+		}
+		const twitter = target.twitter.value // typechecks!
+		const discord = target.discord.value // typechecks!
+		const logo = target.logo.value // typechecks!
+		// TODO: Check links are valid
+
+		// Update State
+		updateConfig({ twitter, discord, logo })
+
+		// Go to Next step
+		router.push('/wrapup')
+	}
+
 	return (
 		<div className="w-11/12 m-auto h-screen flex flex-col">
 			<Header />
 			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
-				<div className="card-body">
-					<h2 className="card-title">Paste Logo & socials</h2>
-					<p>Please paste a link to your logo and socials</p>
-					<input type="text" placeholder="Image" className="input input-bordered w-full max-w-xs mt-4" />
-					<input type="text" placeholder="Twitter" className="input input-bordered w-full max-w-xs mt-4" />
-					<input type="text" placeholder="Discord" className="input input-bordered w-full max-w-xs mt-4" />
-					<Link href="/theme" className="ml-auto mt-3">
-						<svg
-							width="24"
-							height="24"
-							xmlns="http://www.w3.org/2000/svg"
-							fillRule="evenodd"
-							clipRule="evenodd"
-							className="ml-auto mt-4"
-						>
-							<path
-								fill="white"
-								d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
-							/>
-						</svg>
-					</Link>
-				</div>
+				<form onSubmit={handleSubmit}>
+					<div className="card-body">
+						<h2 className="card-title">Paste Logo & socials</h2>
+						<p>Please paste a link to your logo and socials</p>
+						<input
+							type="text"
+							name="logo"
+							defaultValue={config.logo}
+							placeholder="Image"
+							className="input input-bordered w-full max-w-xs mt-4"
+						/>
+						<input
+							type="text"
+							name="twitter"
+							defaultValue={config.twitter}
+							placeholder="Twitter"
+							className="input input-bordered w-full max-w-xs mt-4"
+						/>
+						<input
+							type="text"
+							name="discord"
+							defaultValue={config.discord}
+							placeholder="Discord"
+							className="input input-bordered w-full max-w-xs mt-4"
+						/>
+						<input type="submit" className="ml-auto mt-3" value="Submit" />
+					</div>
+				</form>
 			</div>
 			<footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto outline-none">
 				<div>
@@ -44,4 +76,4 @@ const start = () => {
 	)
 }
 
-export default start
+export default Start

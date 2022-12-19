@@ -1,11 +1,26 @@
 import Header from '@/components/header'
-import { useConfigStore } from '@/store'
+import { ConfigType, useConfigStore } from '@/store'
 import { NextPage } from 'next'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+const useHasHydrated = () => {
+	const [hasHydrated, setHasHydrated] = useState<boolean>(false)
+
+	useEffect(() => {
+		setHasHydrated(true)
+	}, [])
+
+	return hasHydrated
+}
 
 const Wrapup: NextPage = () => {
-	const config = useConfigStore()
+	const config = useConfigStore(state => state.config)
+	const hasHydrated = useHasHydrated()
+
+	if (!hasHydrated) {
+		return <div>Loading...</div>
+	}
 
 	return (
 		<div className="w-11/12 m-auto h-screen flex flex-col">
@@ -13,7 +28,7 @@ const Wrapup: NextPage = () => {
 			<h1 className=" pt-10 text-bold text-3xl pb-4 text-center">Wrap up</h1>
 
 			<h1 className="text-left pt-10 text-bold text-3xl">DAO Address</h1>
-			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
+			<a className="text-bold text-xl text-primary pt-4" href={`https://etherscan.com/address/${config.address}`}>
 				{config.address}
 			</a>
 			<h1 className="text-left pt-10 text-bold text-3xl pb-4">DAO logo</h1>
@@ -21,17 +36,17 @@ const Wrapup: NextPage = () => {
 				<img src={config.logo} alt="logo" />
 			</div>
 			<h1 className="text-left pt-10 text-bold text-3xl">Chosen theme</h1>
-			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
-				{config.theme}
-			</a>
+			<a className="text-bold text-xl text-primary pt-4">{config.theme}</a>
 			<h1 className="text-left pt-10 text-bold text-3xl">Social links</h1>
-			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
+			<a className="text-bold text-xl text-primary pt-4" href={config.twitter}>
 				{config.twitter}
 			</a>
-			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
+			<a className="text-bold text-xl text-primary pt-4" href={config.discord}>
 				{config.discord}
 			</a>
-			<button className="btn w-fit mt-4 mx-auto mb-10">Create Repository</button>
+			<button className="btn w-fit mt-4 mx-auto mb-10" onClick={createRepo}>
+				Create Repository
+			</button>
 		</div>
 	)
 }

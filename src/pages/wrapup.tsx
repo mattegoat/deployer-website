@@ -4,6 +4,7 @@ import { NextPage } from 'next'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { useSession } from 'next-auth/react'
+import { delay } from '@/utils'
 
 const useHasHydrated = () => {
 	const [hasHydrated, setHasHydrated] = useState<boolean>(false)
@@ -38,7 +39,8 @@ const Wrapup: NextPage = () => {
 
 			// Push custom config to deployed repo
 			const owner = response.data.owner.login
-			const name = response.data.full_name
+			const name = response.data.name
+			await delay(1000)
 			const _response = await (
 				await fetch(`/api/update`, {
 					method: 'POST',
@@ -99,6 +101,9 @@ const Wrapup: NextPage = () => {
 							rel="noreferrer"
 						>
 							Go to my repo
+						</a>
+						<a className="btn w-fit mt-4 mx-auto mb-10" href={`https://vercel.com/new/`}>
+							Deploy to Vercel
 						</a>
 						<button className="btn w-fit mt-4 mx-auto mb-10" onClick={reset}>
 							Reset

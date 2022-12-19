@@ -1,11 +1,26 @@
 import Header from '@/components/header'
-import { useConfigStore } from '@/store'
+import { ConfigType, useConfigStore } from '@/store'
 import { NextPage } from 'next'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+const useHasHydrated = () => {
+	const [hasHydrated, setHasHydrated] = useState<boolean>(false)
+
+	useEffect(() => {
+		setHasHydrated(true)
+	}, [])
+
+	return hasHydrated
+}
 
 const Wrapup: NextPage = () => {
-	const config = useConfigStore()
+	const config = useConfigStore(state => state.config)
+	const hasHydrated = useHasHydrated()
+
+	if (!hasHydrated) {
+		return <div>Loading...</div>
+	}
 
 	return (
 		<div className="w-11/12 m-auto h-screen flex flex-col">

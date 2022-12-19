@@ -82,7 +82,7 @@ const Theme: NextPage = () => {
 							</div>
 						</nav>
 						<div className="overflow-hidden w-7/12 card mx-auto">
-							<Image src={nouns} />
+							<Image src={nouns} alt="purpleDAO" />
 						</div>
 						<div className="flex flex-row gap-4 m-auto pt-4 w-fit">
 							<div className="btn btn-outline btn-accent btn-square false">
@@ -148,9 +148,9 @@ const Theme: NextPage = () => {
 					</div>
 				</div>
 			</div>
-			<a href="/wrapup" className="w-full">
+			<Link href="/wrapup" className="w-full">
 				<button className="btn mt-5 mb-10 w-full">Next</button>
-			</a>
+			</Link>
 		</div>
 	)
 }

@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import logo from 'public/images/logo.svg'
 import { Palette } from '@/components/Palette'
 import { NextPage } from 'next'
+import nouns from '/public/images/purple.png'
 
 const themes = [
 	'light',
@@ -55,14 +56,14 @@ const theme: NextPage = () => {
 				<div className="mockup-window border bg-base-300 w-full p-5 ">
 					<div className="flex flex-wrap mt-4 gap-4 justify-center">
 						{themes.map(th => (
-							<button className="rounded-md overflow-w" onClick={() => setSelectedTheme(th)}>
+							<button className="rounded-md overflow-hidden" onClick={() => setSelectedTheme(th)}>
 								<Palette theme={th} />
 							</button>
 						))}
 					</div>
 				</div>
 				<div className="mockup-window border bg-base-300 w-full">
-					<div className="w-full" data-theme={selectedTheme}>
+					<div className="w-full h-full" data-theme={selectedTheme}>
 						<nav className="flex items-center justify-between flex-wrap p-3 w-full">
 							<div
 								className="flex items-center flex-shrink-0 text-white mr-6 w-16 h-16"
@@ -81,6 +82,9 @@ const theme: NextPage = () => {
 								</div>
 							</div>
 						</nav>
+						<div className="overflow-hidden w-7/12 card mx-auto">
+							<Image src={nouns} />
+						</div>
 					</div>
 				</div>
 			</div>

@@ -155,7 +155,9 @@ const Theme: NextPage = () => {
 					</div>
 				</div>
 			</div>
-			<button className="btn mt-5 mb-10">Next</button>
+			<a href="/wrapup" className="w-full">
+				<button className="btn mt-5 mb-10 w-full">Next</button>
+			</a>
 		</div>
 	)
 }

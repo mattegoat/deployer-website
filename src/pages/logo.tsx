@@ -17,10 +17,10 @@ const start = () => {
 			</div>
 			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
 				<div className="card-body">
-					<h2 className="card-title">Paste Address</h2>
-					<p>Please paste the address of your DAO (NFT contract)</p>
+					<h2 className="card-title">Paste Logo</h2>
+					<p>Please paste a link to your logo</p>
 					<input type="text" placeholder="Type here" className="input input-bordered w-full max-w-xs mt-4" />
-					<a href="/logo" className="ml-auto mt-3">
+					<a href="/theme" className="ml-auto mt-3">
 						<svg
 							width="24"
 							height="24"

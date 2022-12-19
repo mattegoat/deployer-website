@@ -23,7 +23,7 @@ const Start: NextPage = () => {
 		configStore.updateConfig({ address })
 
 		// Go to Next step
-		router.push('/theme')
+		router.push('/template')
 	}
 
 	return (

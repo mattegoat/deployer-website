@@ -7,7 +7,9 @@ const start = () => {
 		<div className="w-11/12 m-auto h-screen flex flex-col">
 			<div>
 				<div className="navbar bg-base-100">
-					<a className=" normal-case text-xl">NounsBuilderUI</a>
+					<a href="/" className=" normal-case text-xl">
+						NounsBuilderUI
+					</a>
 					<div className="h-12 w-12 my-auto  translate-y-0.5">
 						<Image src={logo} />
 					</div>

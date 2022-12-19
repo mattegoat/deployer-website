@@ -11,10 +11,10 @@ const Theme: NextPage = () => {
 				<Header />
 				<h1 className="text-center pt-10 text-bold text-3xl pb-5">Pick template</h1>
 				<div className="flex flex-col md:flex-row gap-4">
-					<div className="mockup-window border bg-base-300 w-full">
+					<div className="mockup-window border bg-base-300 w-full cursor-pointer">
 						<Image src={test} />
 					</div>
-					<div className="mockup-window bg-base-300 w-full">
+					<div className="mockup-window bg-base-300 w-full cursor-not-allowed">
 						<div className="flex justify-center bg-base-200 h-full items-center">Soon Available</div>
 					</div>
 				</div>

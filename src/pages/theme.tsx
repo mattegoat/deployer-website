@@ -6,6 +6,8 @@ import { NextPage } from 'next'
 import nouns from '/public/images/purple.png'
 import Link from 'next/link'
 import Header from '@/components/header'
+import { useConfigStore } from '@/store'
+import { useRouter } from 'next/router'
 
 const themes = [
 	'light',
@@ -40,8 +42,15 @@ const themes = [
 ]
 
 const Theme: NextPage = () => {
-	const currentTheme = 'light'
-	const [selectedTheme, setSelectedTheme] = useState(themes[0])
+	const config = useConfigStore(state => state.config)
+	const router = useRouter()
+	const [selectedTheme, setSelectedTheme] = useState(config.theme)
+	const updateConfig = useConfigStore(state => state.updateConfig)
+
+	const handleNext = () => {
+		updateConfig({ theme: selectedTheme })
+		router.push('/logo')
+	}
 
 	return (
 		<div className="w-11/12 m-auto justify-between flex flex-col">
@@ -148,9 +157,9 @@ const Theme: NextPage = () => {
 					</div>
 				</div>
 			</div>
-			<Link href="/wrapup" className="w-full">
-				<button className="btn mt-5 mb-10 w-full">Next</button>
-			</Link>
+			<button className="btn mt-5 mb-10 w-full" onClick={handleNext}>
+				Next
+			</button>
 		</div>
 	)
 }

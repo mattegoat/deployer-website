@@ -21,7 +21,7 @@ const Home: FC = () => {
 						<div className="max-w-xl">
 							<h1 className="text-5xl font-bold">Deploy custom websites for your DAOs in a click</h1>
 							{status === 'authenticated' ? (
-								<Link href="/theme">
+								<Link href="/start">
 									<button className="start-button btn btn-outline mt-7 w-40">Start Now</button>
 								</Link>
 							) : (

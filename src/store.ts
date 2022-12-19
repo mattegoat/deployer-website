@@ -1,4 +1,5 @@
 import { ethers } from 'ethers'
+import { config } from 'process'
 import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
@@ -25,15 +26,15 @@ export const useConfigStore = create<ConfigState>()(
 				discord: 'https://discord.com',
 				logo: 'https://uploads-ssl.webflow.com/6197b886eba53d0f109a168e/619821f289143ff6cd39a7fc_Frame%2030.png',
 			},
-			updateConfig: (c: ConfigType) => set(state => ({ ...state, config: { ...c } })),
+			updateConfig: (c: ConfigType) => set(state => ({ ...state, config: { ...state.config, ...c } })),
 		}),
 		{
 			name: 'config-storage', // name of item in the storage (must be unique)
-			getStorage: () => ({
-				getItem: async name => sessionStorage.getItem(name),
-				setItem: (name, value) => sessionStorage.setItem(name, value),
-				removeItem: name => sessionStorage.removeItem(name),
-			}),
+			// getStorage: () => ({
+			// 	getItem: async name => sessionStorage.getItem(name),
+			// 	setItem: (name, value) => sessionStorage.setItem(name, value),
+			// 	removeItem: name => sessionStorage.removeItem(name),
+			// }),
 		}
 	)
 )

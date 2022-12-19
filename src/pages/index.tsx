@@ -13,7 +13,7 @@ const Home: FC = () => {
 	const { data, status } = useSession()
 
 	return (
-		<div>
+		<div data-theme="black">
 			<div className="w-11/12 m-auto">
 				<Header />
 				<div className="hero min-h-screen ">

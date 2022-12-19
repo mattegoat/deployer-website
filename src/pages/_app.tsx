@@ -5,7 +5,7 @@ import { SessionProvider } from 'next-auth/react'
 
 const App = ({ Component, pageProps: { session, ...pageProps } }) => {
 	return (
-		<SessionProvider session={session}>
+		<SessionProvider session={session} data-theme="black">
 			<ThemeProvider attribute="class">
 				<Web3Provider>
 					<Component {...pageProps} />

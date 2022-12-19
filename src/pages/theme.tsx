@@ -53,7 +53,7 @@ const Theme: NextPage = () => {
 	}
 
 	return (
-		<div className="w-11/12 m-auto justify-between flex flex-col">
+		<div className="w-11/12 m-auto justify-between flex flex-col" data-theme="black">
 			<Header />
 			<h1 className="text-center pt-10 text-bold text-3xl">Pick theme</h1>
 			<div className="flex flex-col md:flex-row gap-4 mt-5 ">

@@ -32,7 +32,7 @@ const Start: NextPage = () => {
 	}
 
 	return (
-		<div className="w-11/12 m-auto h-screen flex flex-col">
+		<div className="w-11/12 m-auto h-screen flex flex-col" data-theme="black">
 			<Header />
 			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
 				<form onSubmit={handleSubmit}>

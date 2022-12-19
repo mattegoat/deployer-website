@@ -1,14 +1,17 @@
 import 'tailwindcss/tailwind.css'
 import { ThemeProvider } from 'next-themes'
 import Web3Provider from '@/components/Web3Provider'
+import { SessionProvider } from 'next-auth/react'
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps: { session, ...pageProps } }) => {
 	return (
-		<ThemeProvider attribute="class">
-			<Web3Provider>
-				<Component {...pageProps} />
-			</Web3Provider>
-		</ThemeProvider>
+		<SessionProvider session={session}>
+			<ThemeProvider attribute="class">
+				<Web3Provider>
+					<Component {...pageProps} />
+				</Web3Provider>
+			</ThemeProvider>
+		</SessionProvider>
 	)
 }
 

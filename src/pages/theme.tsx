@@ -4,6 +4,7 @@ import logo from 'public/images/logo.svg'
 import { Palette } from '@/components/Palette'
 import { NextPage } from 'next'
 import nouns from '/public/images/purple.png'
+import Link from 'next/link'
 
 const themes = [
 	'light',
@@ -45,9 +46,9 @@ const Theme: NextPage = () => {
 		<div className="w-11/12 m-auto justify-between flex flex-col">
 			<div>
 				<div className="navbar bg-base-100">
-					<a href="/" className=" normal-case text-xl">
+					<Link href="/" className=" normal-case text-xl">
 						NounsBuilderUI
-					</a>
+					</Link>
 					<div className="h-12 w-12 my-auto  translate-y-0.5">
 						<Image src={logo} alt="logo" />
 					</div>

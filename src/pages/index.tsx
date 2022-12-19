@@ -6,8 +6,12 @@ import ThemeSwitcher from '@/components/ThemeSwitcher'
 import Header from '@/components/header'
 import bg from 'public/images/bg.png'
 import Image from 'next/image'
+import { signIn, useSession } from 'next-auth/react'
+import Link from 'next/link'
 
 const Home: FC = () => {
+	const { data, status } = useSession()
+
 	return (
 		<div>
 			<div className="w-11/12 m-auto">
@@ -16,15 +20,24 @@ const Home: FC = () => {
 					<div className="hero-content text-center relative">
 						<div className="max-w-xl">
 							<h1 className="text-5xl font-bold">Deploy custom websites for your DAOs in a click</h1>
-							<a href="/start" className="start-button btn btn-outline mt-7 w-40">
-								Start now
-							</a>
+							{status === 'authenticated' ? (
+								<Link href="/theme">
+									<button className="start-button btn btn-outline mt-7 w-40">Start Now</button>
+								</Link>
+							) : (
+								<button
+									onClick={() => signIn('github')}
+									className="start-button btn btn-outline mt-7 w-40"
+								>
+									Connect your Github to begin
+								</button>
+							)}
 						</div>
 						<div
 							className="absolute left-0 bottom-0 -z-10"
 							style={{ transform: 'translate(-408px, 558px)' }}
 						>
-							<Image src={bg} />
+							<Image src={bg} alt="bg" />
 						</div>
 					</div>
 				</div>

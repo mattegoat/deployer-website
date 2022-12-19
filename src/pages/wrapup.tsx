@@ -16,7 +16,7 @@ const Wrapup: NextPage = () => {
 			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
 				{config.address}
 			</a>
-			<h1 className="text-left pt-10 text-bold text-3xl">DAO logo</h1>
+			<h1 className="text-left pt-10 text-bold text-3xl pb-4">DAO logo</h1>
 			<div className="h-24 w-24">
 				<img src={config.logo} alt="logo" />
 			</div>
@@ -31,6 +31,7 @@ const Wrapup: NextPage = () => {
 			<a className="text-bold text-xl text-primary pt-4" href="https://etherscan.com">
 				{config.discord}
 			</a>
+			<button className="btn w-fit mt-4 mx-auto mb-10">Create Repository</button>
 		</div>
 	)
 }

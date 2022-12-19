@@ -5,6 +5,7 @@ import { persist } from 'zustand/middleware'
 
 export type ConfigType = {
 	address?: string
+	adminAddress?: string
 	theme?: string
 	twitter?: string
 	discord?: string
@@ -28,6 +29,7 @@ export const useConfigStore = create<ConfigState>()(
 		(set, get) => ({
 			config: {
 				address: ethers.constants.AddressZero,
+				adminAddress: ethers.constants.AddressZero,
 				theme: 'light',
 				twitter: 'https://twitter.com',
 				discord: 'https://discord.com',

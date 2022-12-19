@@ -15,12 +15,14 @@ const Start: NextPage = () => {
 		e.preventDefault()
 		const target = e.target as typeof e.target & {
 			address: { value: string }
+			adminAddress: { value: string }
 		}
 		const address = target.address.value // typechecks!
-		// TODO: Check address is valid
+		const adminAddress = target.adminAddress.value // typechecks!
+		// TODO: Check addresses are valid
 
 		// Update State
-		configStore.updateConfig({ address })
+		configStore.updateConfig({ address, adminAddress })
 
 		// Go to Next step
 		router.push('/template')
@@ -32,14 +34,21 @@ const Start: NextPage = () => {
 				<Header />
 				<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
 					<div className="card-body">
-						<h2 className="card-title">Paste Address</h2>
-						<p>Please paste the address of your DAO (NFT contract)</p>
+						<h2 className="card-title">Paste Addresses</h2>
+						<p>Please paste the addresses of your DAO and of your wallet</p>
 						<form onSubmit={handleSubmit} className="flex flex-col justify-end">
 							<input
 								type="text"
 								defaultValue={configStore.config.address}
 								name="address"
-								placeholder="Type here"
+								placeholder="DAO Address"
+								className="input input-bordered w-full max-w-xs mt-4"
+							/>
+							<input
+								type="text"
+								defaultValue={configStore.config.adminAddress}
+								name="adminAddress"
+								placeholder="Admin Address"
 								className="input input-bordered w-full max-w-xs mt-4"
 							/>
 							<input type="submit" className="ml-auto mt-3 btn" value="GO" />

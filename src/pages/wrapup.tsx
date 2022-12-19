@@ -79,6 +79,13 @@ const Wrapup: NextPage = () => {
 				>
 					{config.address}
 				</a>
+				<h1 className="text-left pt-10 text-bold text-3xl">Admin Address</h1>
+				<a
+					className="text-bold text-xl text-info pt-4"
+					href={`https://etherscan.com/address/${config.adminAddress}`}
+				>
+					{config.adminAddress}
+				</a>
 				<h1 className="text-left pt-10 text-bold text-3xl pb-4">DAO logo</h1>
 				<div className="h-24 w-24">
 					<img src={config.logo} alt="logo" />

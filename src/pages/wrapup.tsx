@@ -51,8 +51,8 @@ const Wrapup: NextPage = () => {
 	}
 
 	return (
-		<div className="h-full" data-theme="black">
-			<div className="w-11/12 m-auto h-screen flex flex-col">
+		<div className="min-h-full" data-theme="black">
+			<div className="w-11/12 m-auto min-h-screen flex flex-col">
 				<Header />
 				<h1 className=" pt-10 text-bold text-3xl pb-4 text-center">Wrap up</h1>
 

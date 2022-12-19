@@ -58,7 +58,7 @@ const Wrapup: NextPage = () => {
 
 				<h1 className="text-left pt-10 text-bold text-3xl">DAO Address</h1>
 				<a
-					className="text-bold text-xl text-primary pt-4"
+					className="text-bold text-xl text-info pt-4"
 					href={`https://etherscan.com/address/${config.address}`}
 				>
 					{config.address}
@@ -68,12 +68,12 @@ const Wrapup: NextPage = () => {
 					<img src={config.logo} alt="logo" />
 				</div>
 				<h1 className="text-left pt-10 text-bold text-3xl">Chosen theme</h1>
-				<a className="text-bold text-xl text-primary pt-4">{config.theme}</a>
+				<a className="text-bold text-xl text-info pt-4">{config.theme}</a>
 				<h1 className="text-left pt-10 text-bold text-3xl">Social links</h1>
-				<a className="text-bold text-xl text-primary pt-4" href={config.twitter}>
+				<a className="text-bold text-xl text-info pt-4" href={config.twitter}>
 					{config.twitter}
 				</a>
-				<a className="text-bold text-xl text-primary pt-4" href={config.discord}>
+				<a className="text-bold text-xl text-info pt-4" href={config.discord}>
 					{config.discord}
 				</a>
 				{deployedRepo ? (

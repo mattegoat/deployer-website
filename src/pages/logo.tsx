@@ -1,20 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
 import logo from 'public/images/logo.svg'
+import Header from '@/components/header'
 
 const start = () => {
 	return (
 		<div className="w-11/12 m-auto h-screen flex flex-col">
-			<div>
-				<div className="navbar bg-base-100">
-					<a href="/" className=" normal-case text-xl">
-						NounsBuilderUI
-					</a>
-					<div className="h-12 w-12 my-auto  translate-y-0.5">
-						<Image src={logo} />
-					</div>
-				</div>
-			</div>
+			<Header />
 			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
 				<div className="card-body">
 					<h2 className="card-title">Paste Logo</h2>

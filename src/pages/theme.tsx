@@ -5,6 +5,7 @@ import { Palette } from '@/components/Palette'
 import { NextPage } from 'next'
 import nouns from '/public/images/purple.png'
 import Link from 'next/link'
+import Header from '@/components/header'
 
 const themes = [
 	'light',
@@ -44,16 +45,7 @@ const Theme: NextPage = () => {
 
 	return (
 		<div className="w-11/12 m-auto justify-between flex flex-col">
-			<div>
-				<div className="navbar bg-base-100">
-					<Link href="/" className=" normal-case text-xl">
-						NounsBuilderUI
-					</Link>
-					<div className="h-12 w-12 my-auto  translate-y-0.5">
-						<Image src={logo} alt="logo" />
-					</div>
-				</div>
-			</div>
+			<Header />
 			<h1 className="text-center pt-10 text-bold text-3xl">Pick theme</h1>
 			<div className="flex flex-col md:flex-row gap-4 mt-5 ">
 				<div className="mockup-window border bg-base-300 w-full p-5 ">

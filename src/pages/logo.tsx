@@ -61,7 +61,7 @@ const Start: NextPage = () => {
 								placeholder="Discord"
 								className="input input-bordered w-full max-w-xs mt-4"
 							/>
-							<input type="submit" className="ml-auto mt-3" value="Submit" />
+							<input type="submit" className="ml-auto mt-3 btn" value="Submit" />
 						</div>
 					</form>
 				</div>

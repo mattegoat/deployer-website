@@ -32,46 +32,48 @@ const Start: NextPage = () => {
 	}
 
 	return (
-		<div className="w-11/12 m-auto h-screen flex flex-col" data-theme="black">
-			<Header />
-			<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
-				<form onSubmit={handleSubmit}>
-					<div className="card-body">
-						<h2 className="card-title">Paste Logo & socials</h2>
-						<p>Please paste a link to your logo and socials</p>
-						<input
-							type="text"
-							name="logo"
-							defaultValue={config.logo}
-							placeholder="Image"
-							className="input input-bordered w-full max-w-xs mt-4"
-						/>
-						<input
-							type="text"
-							name="twitter"
-							defaultValue={config.twitter}
-							placeholder="Twitter"
-							className="input input-bordered w-full max-w-xs mt-4"
-						/>
-						<input
-							type="text"
-							name="discord"
-							defaultValue={config.discord}
-							placeholder="Discord"
-							className="input input-bordered w-full max-w-xs mt-4"
-						/>
-						<input type="submit" className="ml-auto mt-3" value="Submit" />
-					</div>
-				</form>
-			</div>
-			<footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto outline-none">
-				<div>
-					<p>
-						by <a href="https://twitter.com/0xevolve">0xevolve</a> and{' '}
-						<a href="https://twitter.com/0xmattegoat">mattegoat</a>
-					</p>
+		<div className="h-full" data-theme="black">
+			<div className="w-11/12 m-auto h-screen flex flex-col">
+				<Header />
+				<div className="card outline bg-black w-96 text-primary-content m-auto mt-24">
+					<form onSubmit={handleSubmit}>
+						<div className="card-body">
+							<h2 className="card-title">Paste Logo & socials</h2>
+							<p>Please paste a link to your logo and socials</p>
+							<input
+								type="text"
+								name="logo"
+								defaultValue={config.logo}
+								placeholder="Image"
+								className="input input-bordered w-full max-w-xs mt-4"
+							/>
+							<input
+								type="text"
+								name="twitter"
+								defaultValue={config.twitter}
+								placeholder="Twitter"
+								className="input input-bordered w-full max-w-xs mt-4"
+							/>
+							<input
+								type="text"
+								name="discord"
+								defaultValue={config.discord}
+								placeholder="Discord"
+								className="input input-bordered w-full max-w-xs mt-4"
+							/>
+							<input type="submit" className="ml-auto mt-3" value="Submit" />
+						</div>
+					</form>
 				</div>
-			</footer>
+				<footer className="footer footer-center p-4 bg-base-100 text-base-content mt-auto outline-none">
+					<div>
+						<p>
+							by <a href="https://twitter.com/0xevolve">0xevolve</a> and{' '}
+							<a href="https://twitter.com/0xmattegoat">mattegoat</a>
+						</p>
+					</div>
+				</footer>
+			</div>
 		</div>
 	)
 }

@@ -36,7 +36,7 @@ const themes = [
 	'acid',
 ]
 
-const theme: NextPage = () => {
+const Theme: NextPage = () => {
 	const currentTheme = 'light'
 	const [selectedTheme, setSelectedTheme] = useState(themes[0])
 
@@ -46,7 +46,7 @@ const theme: NextPage = () => {
 				<div className="navbar bg-base-100">
 					<a className=" normal-case text-xl">NounsBuilderUI</a>
 					<div className="h-12 w-12 my-auto  translate-y-0.5">
-						<Image src={logo} />
+						<Image src={logo} alt="logo" />
 					</div>
 				</div>
 			</div>
@@ -54,8 +54,8 @@ const theme: NextPage = () => {
 			<div className="flex flex-col md:flex-row gap-4 mt-5 ">
 				<div className="mockup-window border bg-base-300 w-full p-5 ">
 					<div className="flex flex-wrap mt-4 gap-4 justify-center">
-						{themes.map(th => (
-							<button className="rounded-md overflow-w" onClick={() => setSelectedTheme(th)}>
+						{themes.map((th, index) => (
+							<button className="rounded-md overflow-w" onClick={() => setSelectedTheme(th)} key={index}>
 								<Palette theme={th} />
 							</button>
 						))}
@@ -89,4 +89,4 @@ const theme: NextPage = () => {
 	)
 }
 
-export default theme
+export default Theme

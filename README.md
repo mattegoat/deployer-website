@@ -1,12 +1,28 @@
-# dApp Starter
+# Nounish Deployer
 
-> The template I use to kickstart all my web3 apps.
+> Deploy your custom website for your nounish DAO under 1 minute
 
-This starter kit is composed of Next.js and Tailwind CSS, with ConnectKit, ethers, & wagmi for all your web3 needs. It uses Typescript and an opinionated directory structure for maximum dev confy-ness.
+This project has been built using
+
+-   Next-Auth
+-   Tailwind
+-   Next/TypeScript
+-   Octokit (Github API)
+-   Zudstand (state management)
 
 ## Getting Started
 
-First, install dependencies with `yarn install`. Then, initialize the env file with `cp .env.example .env`, and add your Infura project id. Finally, run the development server with `yarn dev`.
+First, install dependencies with `yarn install`. Then, initialize the env file with `cp .env.example .env`.
+
+Follow this [guide](https://next-auth.js.org/providers/github) to setup NextAuth for your app
+
+```bash
+GITHUB_SECRET=""
+GITHUB_ID=""
+
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=""
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

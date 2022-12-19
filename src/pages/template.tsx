@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const Theme: NextPage = () => {
 	return (
-		<div className="h-full" data-theme="black">
+		<div className="h-screen" data-theme="black">
 			<div className="w-11/12 m-auto justify-between flex flex-col">
 				<Header />
 				<h1 className="text-center pt-10 text-bold text-3xl pb-5">Pick template</h1>

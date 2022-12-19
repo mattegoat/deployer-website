@@ -3,6 +3,7 @@ import { ConfigType, useConfigStore } from '@/store'
 import { NextPage } from 'next'
 import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
+import { useSession } from 'next-auth/react'
 
 const useHasHydrated = () => {
 	const [hasHydrated, setHasHydrated] = useState<boolean>(false)
@@ -16,7 +17,26 @@ const useHasHydrated = () => {
 
 const Wrapup: NextPage = () => {
 	const config = useConfigStore(state => state.config)
+	const deployedRepo = useConfigStore(state => state.deployedRepo)
+	const { data } = useSession()
 	const hasHydrated = useHasHydrated()
+	const updateDeployedInfo = useConfigStore(state => state.updateDeployedInfo)
+
+	const [creating, setCreating] = useState(false)
+
+	const createRepo = async () => {
+		try {
+			setCreating(true)
+			const response = await (await fetch(`/api/create`, { method: 'POST', body: '' })).json()
+			console.log(response)
+			const repoUrl = response.data.html_url
+			updateDeployedInfo({ url: repoUrl })
+			setCreating(false)
+		} catch (err: any) {
+			console.error(err)
+			setCreating(false)
+		}
+	}
 
 	if (!hasHydrated) {
 		return <div>Loading...</div>
@@ -48,9 +68,20 @@ const Wrapup: NextPage = () => {
 				<a className="text-bold text-xl text-primary pt-4" href={config.discord}>
 					{config.discord}
 				</a>
-				<button className="btn w-fit mt-4 mx-auto mb-10" onClick={createRepo}>
-					Create Repository
-				</button>
+				{deployedRepo ? (
+					<a
+						className="btn w-fit mt-4 mx-auto mb-10"
+						href={deployedRepo.url}
+						target="_blank"
+						rel="noreferrer"
+					>
+						Go to my repo
+					</a>
+				) : (
+					<button className="btn w-fit mt-4 mx-auto mb-10" onClick={createRepo}>
+						{creating ? 'Creating..' : 'Create Repository'}
+					</button>
+				)}
 			</div>
 		</div>
 	)
